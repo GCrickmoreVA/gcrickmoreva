@@ -8,59 +8,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-    }
+html, body {
+  height: 100%;
+  margin: 0;
+}
 
-    body{
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
-      text-align: center;
+body{
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
 
-      /* Move content toward the top */
-      display: flex;
-      justify-content: flex-start;   /* was center */
-      align-items: center;
-      padding-top: 12px;             /* adjust 8–24px to taste */
-      box-sizing: border-box;
-    }
+  display: flex;
+  justify-content: center;     /* keeps it centred left-right */
+  align-items: flex-start;     /* moves it toward the top */
 
-    /* Keep content a sensible width on mobile */
-    .container{
-      width: min(720px, 92vw);
-    }
+  padding-top: 06px;           /* adjust 8–20px to taste */
+  box-sizing: border-box;
 
-    h1 {
-      margin: 0 0 10px 0;
-      color: #000000;
-      font-size: clamp(30px, 6vw, 48px);
-    }
+  text-align: center;
+}
 
-    p {
-      margin: 5px 0;
-      color: #181F09;
-      font-size: clamp(16px, 4vw, 20px);
-    }
+.container{
+  width: min(720px, 92vw);
+}
 
-    a {
-      color: #ff7900;
-      text-decoration: none;
-    }
+h1 {
+  margin: 0 0 10px 0;
+  color: #000000;
+  font-size: clamp(30px, 6vw, 48px);
+}
 
-    a:hover {
-      text-decoration: underline;
-    }
+p {
+  margin: 5px 0;
+  color: #181F09;
+  font-size: clamp(16px, 4vw, 20px);
+}
 
-    /* Profile image scales nicely on phones */
-    .profile {
-      width: 250px;
-      max-width: 52vw;   /* prevents it dominating small screens */
-      height: auto;
-      border-radius: 50%;
-      margin-bottom: 20px;
-    }
-  </style>
+a {
+  color: #ff7900;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.profile {
+  width: 250px;
+  max-width: 52vw;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+</style>
 </head>
 
 <body>
