@@ -1,72 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>G Crickmore VA</title>  
-<link rel="icon" type="image/png" href="favicon.png">
-<style>
-html, body {
-  height: 100%;
-  margin: 0;
-}
+  <title>G Crickmore VA</title>
+  <link rel="icon" type="image/png" href="favicon.png">
 
-body{
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-  color: #447A1C;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
+  <!-- Mobile formatting (critical) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-h1 {
-  font-size: 48px;
-  margin: 0 0 10px 0;
-  color: #000000;
-}
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
 
-p {
-  font-size: 20px;
-  margin: 5px 0;
-  color: #181F09;
-}
+    body{
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      text-align: center;
 
-a {
-  color: #ff7900;
-  text-decoration: none;
-}
+      /* Move content toward the top */
+      display: flex;
+      justify-content: flex-start;   /* was center */
+      align-items: center;
+      padding-top: 12px;             /* adjust 8–24px to taste */
+      box-sizing: border-box;
+    }
 
-a:hover {
-  text-decoration: underline;
-}
-</style>
+    /* Keep content a sensible width on mobile */
+    .container{
+      width: min(720px, 92vw);
+    }
 
+    h1 {
+      margin: 0 0 10px 0;
+      color: #000000;
+      font-size: clamp(30px, 6vw, 48px);
+    }
+
+    p {
+      margin: 5px 0;
+      color: #181F09;
+      font-size: clamp(16px, 4vw, 20px);
+    }
+
+    a {
+      color: #ff7900;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Profile image scales nicely on phones */
+    .profile {
+      width: 250px;
+      max-width: 52vw;   /* prevents it dominating small screens */
+      height: auto;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="container">
+    <img class="profile" src="profile.jpg" alt="G Crickmore VA">
 
-<div>
-  <img src="profile.jpg" style="width:250px; border-radius:50%; margin-bottom:20px;">
+    <h1>G Crickmore VA</h1>
 
-  <h1>G Crickmore VA</h1>
+    <p>Voice Actor</p>
+    <p>Commercial • Narration • Games • Storytelling</p>
+    <p>Based in Suffolk, England</p>
 
-  <p>Voice Actor</p>
-  <p>Commercial • Narration • Games • Storytelling</p>
-  <p>Based in Suffolk, England</p>
+    <div style="margin-top:30px;">
+      <p>Voice enquiries:</p>
+      <p>g.crickmore.va@gmail.com</p>
+    </div>
 
-  <div style="margin-top:30px;">
-    <p>Voice enquiries:</p>
-    <p>g.crickmore.va@gmail.com</p>
+    <div style="margin-top:20px;">
+      <p>
+        <a href="https://instagram.com/g_crickmore_va">Instagram</a> |
+        <a href="https://youtube.com/@g_crickmore_va">YouTube</a> |
+        <a href="https://x.com/G_Crickmore_VA">X</a>
+      </p>
+    </div>
   </div>
-
-  <div style="margin-top:20px;">
-    <p>
-      <a href="https://instagram.com/g_crickmore_va">Instagram</a> |
-      <a href="https://youtube.com/@g_crickmore_va">YouTube</a> |
-      <a href="https://x.com/G_Crickmore_VA">X</a>
-    </p>
-  </div>
-</div>
-  
 </body>
 </html>
