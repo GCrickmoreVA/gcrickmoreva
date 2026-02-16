@@ -1,70 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>G Crickmore VA</title>
   <link rel="icon" type="image/png" href="favicon.png">
-
-  <!-- Mobile formatting (critical) -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
-html, body {
-  height: 100%;
-  margin: 0;
-}
+    :root{
+      --ink: #0f1a12;
+      --muted: #3c4a41;
+      --bg: #f4f5f2;
+      --card: #ffffff;
+      --green: #2e5e3e;
+      --green-soft: rgba(46,94,62,0.12);
+      --orange: #ff7900;
+    }
 
-body{
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
+    *{ box-sizing: border-box; }
 
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+    html, body{
+      height: 100%;
+      margin: 0;
+    }
 
-  padding: 20px 16px 0 16px;   /* adds breathing room on mobile */
-  box-sizing: border-box;
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
 
-  text-align: center;
-}
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
 
-.container{
-  width: min(600px, 88vw);      /* narrower */
-  border: 2px solid #2e5e3e;    /* deep, professional green */
-  padding: 30px 20px;
-  border-radius: 12px;
-  background-color: #ffffff;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-}
+      padding: 24px 16px 40px;
+      text-align: center;
+    }
 
-h1 {
-  margin: 0 0 10px 0;
-  color: #000000;
-  font-size: clamp(30px, 6vw, 48px);
-}
+    .container{
+      width: min(600px, 88vw);
+      background: var(--card);
+      border: 2px solid var(--green);
+      border-radius: 14px;
+      padding: 34px 22px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+    }
 
-p {
-  margin: 5px 0;
-  color: #181F09;
-  font-size: clamp(16px, 4vw, 20px);
-}
+    .profile{
+      width: 230px;
+      max-width: 56vw;
+      height: auto;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      border: 3px solid var(--green-soft);
+    }
 
-a {
-  color: #ff7900;
-  text-decoration: none;
-}
+    h1{
+      margin: 0 0 8px 0;
+      font-size: clamp(30px, 5.5vw, 46px);
+      letter-spacing: 0.2px;
+    }
 
-a:hover {
-  text-decoration: underline;
-}
+    .tagline{
+      margin: 6px 0;
+      color: var(--muted);
+      font-size: clamp(16px, 3.8vw, 19px);
+      line-height: 1.35;
+    }
 
-.profile {
-  width: 250px;
-  max-width: 52vw;
-  height: auto;
-  border-radius: 50%;
-  margin-bottom: 20px;
-}
-</style>
+    .divider{
+      height: 1px;
+      background: rgba(46,94,62,0.25);
+      margin: 22px auto;
+      width: min(420px, 85%);
+    }
+
+    .cta-label{
+      margin: 0 0 10px 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .email{
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid rgba(46,94,62,0.35);
+      background: rgba(46,94,62,0.06);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .email:hover{
+      border-color: rgba(46,94,62,0.55);
+      background: rgba(46,94,62,0.10);
+    }
+
+    .links{
+      margin-top: 18px;
+      font-size: 16px;
+    }
+
+    .links a{
+      color: var(--orange);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 8px;
+      border-radius: 8px;
+      display: inline-block;
+    }
+
+    .links a:hover{
+      text-decoration: underline;
+      background: rgba(255,121,0,0.10);
+    }
+
+    /* Small-screen tweaks */
+    @media (max-width: 420px){
+      .container{ padding: 28px 18px; }
+      .profile{ width: 210px; }
+    }
+  </style>
 </head>
 
 <body>
@@ -73,17 +129,17 @@ a:hover {
 
     <h1>G Crickmore VA</h1>
 
-    <p>Voice Actor</p>
-    <p>Commercial • Narration • Games • Storytelling</p>
-    <p>Based in Suffolk, England</p>
+    <p class="tagline">Voice Actor</p>
+    <p class="tagline">Commercial • Narration • Games • Storytelling</p>
+    <p class="tagline">Based in Suffolk, England</p>
 
-    <div style="margin-top:30px;">
-      <p>Voice enquiries:</p>
-      <p>g.crickmore.va@gmail.com</p>
-    </div>
+    <div class="divider"></div>
 
-    <div style="margin-top:20px;">
-      <p>
+    <p class="cta-label">Voice enquiries:</p>
+    <a class="email" href="mailto:g.crickmore.va@gmail.com">g.crickmore.va@gmail.com</a>
+
+    <div class="links">
+      <p style="margin:18px 0 0;">
         <a href="https://instagram.com/g_crickmore_va">Instagram</a> |
         <a href="https://youtube.com/@g_crickmore_va">YouTube</a> |
         <a href="https://x.com/G_Crickmore_VA">X</a>
