@@ -80,6 +80,13 @@
       font-size: 15px;
     }
 
+    .player{
+      width: min(460px, 100%);
+      margin: 8px auto 0;
+      display: block;
+      accent-color: var(--green);
+    }
+
     .email{
       display: inline-block;
       padding: 10px 14px;
@@ -132,6 +139,19 @@
     <p class="tagline">Voice Actor</p>
     <p class="tagline">Commercial • Narration • Games • Storytelling</p>
     <p class="tagline">Based in Suffolk, England</p>
+
+    <div class="divider"></div>
+
+    <p class="cta-label">Commercial Demo</p>
+    <audio class="player" controls preload="none">
+      <!-- IMPORTANT: filename must match your uploaded mp3 EXACTLY -->
+      <source src="george-commercial-demo-2025.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <p style="margin-top:14px;">
+      <a href="https://www.voices.com/profile/gcrickmoreva">Hear full demos</a>
+    </p>
 
     <div class="divider"></div>
 
