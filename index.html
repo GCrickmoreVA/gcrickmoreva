@@ -67,6 +67,13 @@
       line-height: 1.35;
     }
 
+    .value-line{
+      margin: 10px 0 0;
+      color: var(--ink);
+      font-size: clamp(15px, 3.6vw, 18px);
+      font-weight: 600;
+    }
+
     .divider{
       height: 1px;
       background: rgba(46,94,62,0.25);
@@ -78,6 +85,7 @@
       margin: 0 0 10px 0;
       color: var(--muted);
       font-size: 15px;
+      font-weight: 600;
     }
 
     .player{
@@ -85,6 +93,32 @@
       margin: 8px auto 0;
       display: block;
       accent-color: var(--green);
+    }
+
+    .subline{
+      margin-top: 6px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* Voices link: de-emphasised (not competing with socials) */
+    .voices-link{
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid rgba(46,94,62,0.25);
+      background: rgba(46,94,62,0.06);
+    }
+
+    .voices-link:hover{
+      text-decoration: underline;
+      border-color: rgba(46,94,62,0.40);
+      background: rgba(46,94,62,0.10);
     }
 
     .email{
@@ -122,16 +156,6 @@
       background: rgba(255,121,0,0.10);
     }
 
-    .voices-link{
-      color: var(--orange);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .voices-link:hover{
-      text-decoration: underline;
-    }
-
     @media (max-width: 420px){
       .container{ padding: 28px 18px; }
       .profile{ width: 210px; }
@@ -146,9 +170,12 @@
     <h1>G Crickmore VA</h1>
 
     <p class="tagline">Voice Actor</p>
-    <p class="tagline">Commercial • Narration • Games • Storytelling</p>
+    <p class="tagline">Commercial • Narration • Games</p>
     <p class="tagline">Based in Suffolk, England</p>
 
+    <p class="value-line">Warm, grounded British voice with fast turnaround.</p>
+
+    <!-- Divider 1: Demo section -->
     <div class="divider"></div>
 
     <p class="cta-label">Listen to my Commercial Demo</p>
@@ -158,17 +185,16 @@
       Your browser does not support the audio element.
     </audio>
 
-    <p style="margin-top:6px; font-size:14px; color:#3c4a41;">
-      Natural, grounded reads for modern brands
-    </p>
+    <p class="subline">Natural, grounded reads for modern brands</p>
 
-    <p style="margin-top:14px;">
-      <a class="voices-link" href="https://www.voices.com/profile/gcrickmoreva">Hear full demos</a>
-    </p>
+    <a class="voices-link" href="https://www.voices.com/profile/gcrickmoreva">
+      Hear more demos on Voices
+    </a>
 
+    <!-- Divider 2: Contact section -->
     <div class="divider"></div>
 
-    <p class="cta-label">Voice enquiries:</p>
+    <p class="cta-label">Available for commercial, narration & character work</p>
     <a class="email" href="mailto:g.crickmore.va@gmail.com">g.crickmore.va@gmail.com</a>
 
     <div class="links">
