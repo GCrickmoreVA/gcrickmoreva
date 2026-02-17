@@ -21,6 +21,7 @@
 
     *{ box-sizing:border-box; }
     html,body{ height:100%; margin:0; }
+
     body{
       font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       background:var(--bg);
@@ -32,54 +33,71 @@
     }
 
     .container{
-      width:min(1180px, 96vw); /* wider “studio” feel */
+      width:min(1180px, 96vw);
       background:var(--card);
       border:4px solid var(--green);
       border-radius:14px;
-      padding:26px 26px;
+      padding:22px 22px 26px;
       box-shadow:var(--shadow);
     }
 
-    /* --- Header --- */
-    .header{
-      display:grid;
-      grid-template-columns: 220px 1fr 220px; /* optional right image */
-      gap:26px;
-      align-items:start;
-      text-align:left;
+    /* --- Hero header (studio image background) --- */
+    .hero{
+      position:relative;
+      background:url("studio.jpg") center center / cover no-repeat;
+      border-radius:12px;
+      overflow:hidden;
+      padding:40px 30px;
+      margin-bottom:18px;
     }
 
-    .profile, .side-image{
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.65);
+    }
+
+    .hero-content{
+      position:relative;
+      display:grid;
+      grid-template-columns:220px 1fr;
+      gap:28px;
+      align-items:center;
+      text-align:left;
+      color:#ffffff;
+    }
+
+    .profile{
       width:220px;
       height:220px;
       object-fit:cover;
       border-radius:50%;
-      border:3px solid var(--green-soft);
+      border:3px solid rgba(255,255,255,0.18);
       display:block;
       margin:0 auto;
-      background:rgba(0,0,0,0.03);
+      background:rgba(255,255,255,0.05);
     }
 
-    /* If you don't want a second image, you can remove the <img class="side-image"> below.
-       Or keep it with a subtle studio/texture photo for balance. */
-    .side-image{ opacity:0.95; }
-
-    .header-text{ padding-top:4px; }
     .title{
       margin:0 0 8px 0;
       font-size:clamp(30px, 3.8vw, 52px);
       letter-spacing:0.2px;
+      color:#ffffff;
     }
+
     .tagline{
       margin:6px 0;
-      color:var(--muted);
       font-size:clamp(16px, 2.1vw, 19px);
       line-height:1.35;
+      color:rgba(255,255,255,0.86);
     }
+
     .value-line{
       margin:12px 0 0;
       font-size:clamp(15px, 2.0vw, 18px);
-      font-weight:800;
+      font-weight:900;
+      color:rgba(255,255,255,0.92);
     }
 
     .cta-row{
@@ -93,35 +111,41 @@
     .btn{
       display:inline-block;
       text-decoration:none;
-      font-weight:800;
+      font-weight:900;
       border-radius:10px;
       padding:10px 14px;
-      border:1px solid rgba(46,94,62,0.35);
-      background:rgba(46,94,62,0.06);
-      color:var(--ink);
+      border:1px solid rgba(255,255,255,0.28);
+      background:rgba(255,255,255,0.10);
+      color:#ffffff;
       transition: transform 0.06s ease, background 0.15s ease, border-color 0.15s ease;
     }
+
     .btn:hover{
-      border-color: rgba(46,94,62,0.55);
-      background: rgba(46,94,62,0.10);
+      border-color: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.14);
       transform: translateY(-1px);
     }
 
     .btn-primary{
       border-color: rgba(46,94,62,0.70);
-      background: rgba(46,94,62,0.14);
+      background: rgba(46,94,62,0.55);
+    }
+
+    .btn-primary:hover{
+      background: rgba(46,94,62,0.65);
+      border-color: rgba(46,94,62,0.85);
     }
 
     .btn-ghost{
-      border-color: rgba(46,94,62,0.25);
+      border-color: rgba(255,255,255,0.22);
       background: transparent;
     }
 
     .microtrust{
       margin-top:10px;
-      color:var(--muted);
       font-size:13px;
       line-height:1.45;
+      color:rgba(255,255,255,0.78);
     }
 
     .divider{
@@ -131,7 +155,6 @@
       width:min(1020px, 96%);
     }
 
-    /* --- Sections --- */
     .section{
       width:min(1020px, 100%);
       margin:0 auto;
@@ -141,16 +164,17 @@
       margin:0 0 8px 0;
       color:var(--muted);
       font-size:15px;
-      font-weight:700;
+      font-weight:800;
       letter-spacing:0.2px;
-      text-transform:none;
+      text-align:center;
     }
 
     .lead{
-      margin: 0 0 10px 0;
-      color: var(--ink);
-      font-size: 15px;
-      line-height: 1.55;
+      margin:0 0 10px 0;
+      color:var(--ink);
+      font-size:15px;
+      line-height:1.55;
+      text-align:center;
     }
 
     /* --- Audio --- */
@@ -181,6 +205,7 @@
       color:var(--muted);
       font-size:14px;
       line-height:1.45;
+      text-align:center;
     }
 
     /* --- Service grid --- */
@@ -190,17 +215,20 @@
       gap:12px;
       margin-top:10px;
     }
+
     .tile{
       border:1px solid rgba(46,94,62,0.18);
       border-radius:12px;
       padding:12px 12px;
-      background: #fff;
+      background:#fff;
     }
+
     .tile h3{
       margin:0 0 6px 0;
       font-size:14px;
       letter-spacing:0.2px;
     }
+
     .tile p{
       margin:0;
       color:var(--muted);
@@ -215,6 +243,7 @@
       gap:10px 14px;
       margin-top:10px;
     }
+
     .trust-item{
       border-left:3px solid rgba(46,94,62,0.35);
       padding-left:10px;
@@ -222,6 +251,7 @@
       font-size:13px;
       line-height:1.45;
     }
+
     .trust-item strong{ color:var(--ink); }
 
     /* --- Contact --- */
@@ -236,6 +266,7 @@
       gap:14px;
       flex-wrap:wrap;
     }
+
     .email{
       display:inline-block;
       padding:10px 14px;
@@ -247,6 +278,7 @@
       font-weight:900;
       letter-spacing:0.2px;
     }
+
     .email:hover{
       border-color: rgba(46,94,62,0.55);
       background: rgba(46,94,62,0.10);
@@ -264,14 +296,16 @@
       text-align:center;
       font-size:15px;
     }
+
     .links a{
       color:var(--orange);
       text-decoration:none;
-      font-weight:800;
+      font-weight:900;
       padding:6px 8px;
       border-radius:8px;
       display:inline-block;
     }
+
     .links a:hover{
       text-decoration:underline;
       background: rgba(255,121,0,0.10);
@@ -286,31 +320,28 @@
 
     /* --- Mobile --- */
     @media (max-width: 860px){
-      .header{
-        grid-template-columns: 200px 1fr;
-      }
-      .side-image{ display:none; } /* hide optional right image on smaller screens */
+      .hero{ padding:28px 18px; }
+      .hero-content{ grid-template-columns: 200px 1fr; gap:18px; }
       .profile{ width:200px; height:200px; }
     }
 
     @media (max-width: 640px){
       body{ padding:14px 12px 22px; }
-      .container{ padding:22px 16px; }
-      .header{
+      .container{ padding:18px 16px 22px; }
+      .hero{ padding:22px 16px; }
+      .hero-content{
         grid-template-columns: 1fr;
         gap:14px;
         text-align:center;
       }
-      .profile{ width:190px; height:190px; }
       .cta-row{ justify-content:center; }
+      .profile{ width:190px; height:190px; }
       .grid{ grid-template-columns: 1fr; }
       .trust{ grid-template-columns: 1fr; }
       .contact-card{ justify-content:center; text-align:center; }
     }
 
-    /* Short screens: reduce vertical cost */
     @media (max-height: 780px){
-      .container{ padding:20px 18px; }
       .divider{ margin:14px auto; }
     }
   </style>
@@ -319,38 +350,38 @@
 <body>
   <main class="container">
 
-    <header class="header">
-      <img class="profile" src="profile.jpg" alt="G Crickmore VA profile photo">
+    <header class="hero" aria-label="Header">
+      <div class="hero-content">
 
-      <div class="header-text">
-        <h1 class="title">G Crickmore VA</h1>
-        <p class="tagline">Voice Actor</p>
-        <p class="tagline">Commercial • Narration • Games</p>
-        <p class="tagline">Based in Suffolk, England</p>
-        <p class="value-line">Warm, grounded British voice with fast turnaround.</p>
+        <img class="profile" src="profile.jpg" alt="G Crickmore VA profile photo">
 
-        <div class="cta-row">
-          <a class="btn btn-primary" href="mailto:g.crickmore.va@gmail.com?subject=Voiceover%20Booking%20Request&body=Hi%20George%2C%0A%0AI%27d%20like%20to%20book%20you%20for%3A%0A-%20Project%20type%3A%0A-%20Usage%20(%20web%2Fradio%2Fpaid%20ads%2Faudiobook%2Fetc%20)%3A%0A-%20Length%20/%20word%20count%3A%0A-%20Deadline%3A%0A-%20Reference%20links%3A%0A%0AThanks%2C">
-            Email to Hire
-          </a>
-          <a class="btn btn-ghost" href="https://www.voices.com/profile/gcrickmoreva" target="_blank" rel="noopener">
-            More Demos (Voices)
-          </a>
+        <div>
+          <h1 class="title">G Crickmore VA</h1>
+          <p class="tagline">Voice Actor</p>
+          <p class="tagline">Commercial • Narration • Games</p>
+          <p class="tagline">Based in Suffolk, England</p>
+          <p class="value-line">Warm, grounded British voice with fast turnaround.</p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary"
+               href="mailto:g.crickmore.va@gmail.com?subject=Voiceover%20Booking%20Request&body=Hi%20George%2C%0A%0AI%27d%20like%20to%20book%20you%20for%3A%0A-%20Project%20type%3A%0A-%20Usage%20(web%2Fradio%2Fpaid%20ads%2Faudiobook%2Fetc)%3A%0A-%20Length%20%2F%20word%20count%3A%0A-%20Deadline%3A%0A-%20Reference%20links%3A%0A%0AThanks%2C">
+              Email to Hire
+            </a>
+
+            <a class="btn btn-ghost" href="https://www.voices.com/profile/gcrickmoreva" target="_blank" rel="noopener">
+              More Demos (Voices)
+            </a>
+          </div>
+
+          <p class="microtrust">
+            ✅ Clean broadcast-ready audio<br>
+            ✅ Fast, professional communication<br>
+            ✅ Delivery in WAV/MP3 (48kHz/24-bit on request)
+          </p>
         </div>
 
-        <p class="microtrust">
-          ✅ Clean broadcast-ready audio<br>
-          ✅ Fast, professional communication<br>
-          ✅ Delivery in WAV/MP3 (48kHz/24-bit on request)
-        </p>
       </div>
-
-      <!-- OPTIONAL: second header image for balance.
-           Put your other image in the repo as "studio.jpg" (or rename here). -->
-      <img class="side-image" src="studio.jpg" alt="Studio image (optional)">
     </header>
-
-    <div class="divider"></div>
 
     <section class="section" aria-label="Demo">
       <p class="section-title">Commercial Demo</p>
@@ -414,14 +445,18 @@
 
       <div class="contact-card">
         <div>
-          <p class="mini" style="margin:0 0 6px 0;"><strong>Fastest route:</strong> email with your script + usage + deadline.</p>
+          <p class="mini" style="margin:0 0 6px 0;">
+            <strong>Fastest route:</strong> email with your script + usage + deadline.
+          </p>
           <a class="email" href="mailto:g.crickmore.va@gmail.com">g.crickmore.va@gmail.com</a>
         </div>
 
         <div style="min-width:240px; text-align:right;">
           <p class="mini" style="margin:0;">
             Prefer a platform?<br>
-            <a class="btn" href="https://www.voices.com/profile/gcrickmoreva" target="_blank" rel="noopener">Book via Voices</a>
+            <a class="btn" href="https://www.voices.com/profile/gcrickmoreva" target="_blank" rel="noopener">
+              Book via Voices
+            </a>
           </p>
         </div>
       </div>
@@ -462,13 +497,11 @@
       durationEl.textContent = formatTime(player.duration);
     }
 
-    // Duration becomes available after metadata is loaded (where the browser allows)
     player.addEventListener("loadedmetadata", updateTimes);
     player.addEventListener("timeupdate", updateTimes);
     player.addEventListener("durationchange", updateTimes);
     player.addEventListener("emptied", updateTimes);
 
-    // If metadata is already cached and loaded quickly:
     updateTimes();
   </script>
 </body>
