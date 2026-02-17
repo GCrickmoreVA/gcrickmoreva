@@ -46,14 +46,17 @@
     }
 
     /* --- Pro header layout (desktop) --- */
-    .header{
-      display: grid;
-      grid-template-columns: 240px 1fr;
-      gap: 22px;
-      align-items: center;
-      text-align: left; /* desktop: left-align for a studio feel */
+ .header{
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 32px; /* more breathing room */
+  align-items: center;
+  text-align: left; /* desktop: left-align for a studio feel */
     }
-
+    
+.header-text{
+  padding-left: 12px;
+}
     .profile{
       width: 240px;
       height: 240px;
@@ -183,6 +186,9 @@
         text-align: center;
       }
 
+      .header-text{
+  padding-left: 0;
+}
       .profile{
         width: 200px;
         height: 200px;
