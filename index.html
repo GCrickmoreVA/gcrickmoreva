@@ -32,64 +32,73 @@
       justify-content: center;
       align-items: flex-start;
 
-      padding: 18px 14px 28px; /* tighter */
+      padding: 18px 14px 28px;
       text-align: center;
     }
 
     .container{
-      width: min(980px, 96vw);          /* use more desktop width */
+      width: min(980px, 96vw);
       background: var(--card);
       border: 4px solid var(--green);
       border-radius: 14px;
-      padding: 28px 26px;               /* tighter */
+      padding: 28px 26px;
       box-shadow: 0 14px 40px rgba(0,0,0,0.08);
     }
 
-    .profile{
-      width: 210px;                      /* slightly smaller to reduce scroll */
-      max-width: 52vw;
-      height: auto;
-      border-radius: 50%;
-      margin: 0 auto 14px;               /* tighter */
-      border: 3px solid var(--green-soft);
+    /* --- Pro header layout (desktop) --- */
+    .header{
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 22px;
+      align-items: center;
+      text-align: left; /* desktop: left-align for a studio feel */
     }
 
-    h1{
-      margin: 0 0 6px 0;
-      font-size: clamp(30px, 4.6vw, 48px);
+    .profile{
+      width: 240px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--green-soft);
+      display: block;
+      margin: 0 auto;
+    }
+
+    .title{
+      margin: 0 0 8px 0;
+      font-size: clamp(30px, 4.2vw, 50px);
       letter-spacing: 0.2px;
     }
 
     .tagline{
       margin: 5px 0;
       color: var(--muted);
-      font-size: clamp(16px, 2.4vw, 19px);
+      font-size: clamp(16px, 2.2vw, 19px);
       line-height: 1.35;
     }
 
     .value-line{
-      margin: 10px 0 0;
+      margin: 12px 0 0;
       color: var(--ink);
-      font-size: clamp(15px, 2.2vw, 18px);
+      font-size: clamp(15px, 2.1vw, 18px);
       font-weight: 700;
     }
 
-    /* Let dividers scale with the wider card */
     .divider{
       height: 1px;
       background: rgba(46,94,62,0.25);
-      margin: 18px auto;                 /* tighter */
-      width: min(860px, 92%);            /* wider */
+      margin: 18px auto;
+      width: min(860px, 92%);
     }
 
-    .cta-label{
+    .section-title{
       margin: 0 0 8px 0;
       color: var(--muted);
       font-size: 15px;
       font-weight: 600;
+      text-align: center;
     }
 
-    /* Let the player actually use the card width */
     .player{
       width: min(860px, 100%);
       margin: 6px auto 0;
@@ -101,6 +110,7 @@
       margin: 6px 0 0;
       font-size: 14px;
       color: var(--muted);
+      text-align: center;
     }
 
     .voices-link{
@@ -122,6 +132,10 @@
       background: rgba(46,94,62,0.10);
     }
 
+    .email-wrap{
+      text-align: center;
+    }
+
     .email{
       display: inline-block;
       padding: 10px 14px;
@@ -141,6 +155,7 @@
     .links{
       margin-top: 14px;
       font-size: 16px;
+      text-align: center;
     }
 
     .links a{
@@ -157,19 +172,28 @@
       background: rgba(255,121,0,0.10);
     }
 
-    /* Mobile */
-    @media (max-width: 420px){
-      body{ padding: 14px 12px 22px; }
+    /* Mobile: stack header + center align */
+    @media (max-width: 640px){
+      body{ padding: 14px 12px 22px; text-align: center; }
       .container{ padding: 24px 16px; }
-      .profile{ width: 195px; }
-      .divider{ width: min(560px, 90%); }
+
+      .header{
+        grid-template-columns: 1fr;
+        gap: 14px;
+        text-align: center;
+      }
+
+      .profile{
+        width: 200px;
+        height: 200px;
+      }
     }
 
-    /* Short screens: reduce vertical cost even more */
+    /* Short screens: reduce vertical cost */
     @media (max-height: 780px){
       .container{ padding: 22px 18px; }
       .divider{ margin: 14px auto; }
-      .profile{ width: 190px; margin-bottom: 10px; }
+      .profile{ width: 210px; height: 210px; }
       .links{ margin-top: 10px; }
     }
   </style>
@@ -177,20 +201,24 @@
 
 <body>
   <div class="container">
-    <img class="profile" src="profile.jpg" alt="G Crickmore VA">
 
-    <h1>G Crickmore VA</h1>
+    <div class="header">
+      <img class="profile" src="profile.jpg" alt="G Crickmore VA">
 
-    <p class="tagline">Voice Actor</p>
-    <p class="tagline">Commercial • Narration • Games</p>
-    <p class="tagline">Based in Suffolk, England</p>
-
-    <p class="value-line">Warm, grounded British voice with fast turnaround.</p>
+      <div class="header-text">
+        <h1 class="title">G Crickmore VA</h1>
+        <p class="tagline">Voice Actor</p>
+        <p class="tagline">Commercial • Narration • Games</p>
+        <p class="tagline">Based in Suffolk, England</p>
+        <p class="value-line">Warm, grounded British voice with fast turnaround.</p>
+      </div>
+    </div>
 
     <div class="divider"></div>
 
-    <p class="cta-label">Listen to my Commercial Demo</p>
+    <p class="section-title">Listen to my Commercial Demo</p>
 
+    <!-- preload=metadata shows duration before play (where the browser allows) -->
     <audio class="player" controls preload="metadata">
       <source src="./demo.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
@@ -198,14 +226,19 @@
 
     <p class="subline">Natural, grounded reads for modern brands</p>
 
-    <a class="voices-link" href="https://www.voices.com/profile/gcrickmoreva">
-      Hear more demos on Voices
-    </a>
+    <p style="text-align:center; margin: 10px 0 0;">
+      <a class="voices-link" href="https://www.voices.com/profile/gcrickmoreva">
+        Hear more demos on Voices
+      </a>
+    </p>
 
     <div class="divider"></div>
 
-    <p class="cta-label">Available for commercial, narration & character work</p>
-    <a class="email" href="mailto:g.crickmore.va@gmail.com">g.crickmore.va@gmail.com</a>
+    <p class="section-title">Available for commercial, narration & character work</p>
+
+    <div class="email-wrap">
+      <a class="email" href="mailto:g.crickmore.va@gmail.com">g.crickmore.va@gmail.com</a>
+    </div>
 
     <div class="links">
       <p style="margin:14px 0 0;">
@@ -214,6 +247,7 @@
         <a href="https://x.com/G_Crickmore_VA">X</a>
       </p>
     </div>
+
   </div>
 </body>
 </html>
