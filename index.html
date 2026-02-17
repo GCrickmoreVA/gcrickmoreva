@@ -1,216 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="utf-8" />
   <title>G Crickmore VA</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     :root{
-      --ink: #0f1a12;
-      --muted: #3c4a41;
-      --bg: #f4f5f2;
-      --card: #ffffff;
-      --green: #2e5e3e;
-      --green-soft: rgba(46,94,62,0.12);
-      --orange: #ff7900;
+      --ink:#0f1a12;
+      --muted:#3c4a41;
+      --bg:#f4f5f2;
+      --card:#ffffff;
+      --green:#2e5e3e;
+      --green-soft:rgba(46,94,62,0.12);
+      --orange:#ff7900;
+      --line:rgba(46,94,62,0.22);
+      --shadow:0 14px 40px rgba(0,0,0,0.08);
     }
 
-    *{ box-sizing: border-box; }
-
-    html, body{
-      height: 100%;
-      margin: 0;
-    }
-
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; margin:0; }
     body{
       font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-
-      padding: 18px 14px 28px;
-      text-align: center;
+      background:var(--bg);
+      color:var(--ink);
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      padding:18px 14px 28px;
     }
 
     .container{
-      width: min(980px, 96vw);
-      background: var(--card);
-      border: 4px solid var(--green);
-      border-radius: 14px;
-      padding: 28px 26px;
-      box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+      width:min(1180px, 96vw); /* wider “studio” feel */
+      background:var(--card);
+      border:4px solid var(--green);
+      border-radius:14px;
+      padding:26px 26px;
+      box-shadow:var(--shadow);
     }
 
-    /* --- Pro header layout (desktop) --- */
-.header{
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  gap: 32px;
-  align-items: start; /* key change */
-  text-align: left;
-}
-    
-.header-text{
-  padding-left: 12px;
-  margin-top: 6px;
-}
-    .profile{
-      width: 240px;
-      height: 240px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid var(--green-soft);
-      display: block;
-      margin: 0 auto;
+    /* --- Header --- */
+    .header{
+      display:grid;
+      grid-template-columns: 220px 1fr 220px; /* optional right image */
+      gap:26px;
+      align-items:start;
+      text-align:left;
     }
 
+    .profile, .side-image{
+      width:220px;
+      height:220px;
+      object-fit:cover;
+      border-radius:50%;
+      border:3px solid var(--green-soft);
+      display:block;
+      margin:0 auto;
+      background:rgba(0,0,0,0.03);
+    }
+
+    /* If you don't want a second image, you can remove the <img class="side-image"> below.
+       Or keep it with a subtle studio/texture photo for balance. */
+    .side-image{ opacity:0.95; }
+
+    .header-text{ padding-top:4px; }
     .title{
-      margin: 0 0 8px 0;
-      font-size: clamp(30px, 4.2vw, 50px);
-      letter-spacing: 0.2px;
+      margin:0 0 8px 0;
+      font-size:clamp(30px, 3.8vw, 52px);
+      letter-spacing:0.2px;
     }
-
     .tagline{
-      margin: 5px 0;
-      color: var(--muted);
-      font-size: clamp(16px, 2.2vw, 19px);
-      line-height: 1.35;
+      margin:6px 0;
+      color:var(--muted);
+      font-size:clamp(16px, 2.1vw, 19px);
+      line-height:1.35;
+    }
+    .value-line{
+      margin:12px 0 0;
+      font-size:clamp(15px, 2.0vw, 18px);
+      font-weight:800;
     }
 
-    .value-line{
-      margin: 12px 0 0;
-      color: var(--ink);
-      font-size: clamp(15px, 2.1vw, 18px);
-      font-weight: 700;
+    .cta-row{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      font-weight:800;
+      border-radius:10px;
+      padding:10px 14px;
+      border:1px solid rgba(46,94,62,0.35);
+      background:rgba(46,94,62,0.06);
+      color:var(--ink);
+      transition: transform 0.06s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+    .btn:hover{
+      border-color: rgba(46,94,62,0.55);
+      background: rgba(46,94,62,0.10);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary{
+      border-color: rgba(46,94,62,0.70);
+      background: rgba(46,94,62,0.14);
+    }
+
+    .btn-ghost{
+      border-color: rgba(46,94,62,0.25);
+      background: transparent;
+    }
+
+    .microtrust{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
     }
 
     .divider{
-      height: 1px;
-      background: rgba(46,94,62,0.25);
-      margin: 18px auto;
-      width: min(860px, 92%);
+      height:1px;
+      background:var(--line);
+      margin:18px auto;
+      width:min(1020px, 96%);
+    }
+
+    /* --- Sections --- */
+    .section{
+      width:min(1020px, 100%);
+      margin:0 auto;
     }
 
     .section-title{
-      margin: 0 0 8px 0;
-      color: var(--muted);
+      margin:0 0 8px 0;
+      color:var(--muted);
+      font-size:15px;
+      font-weight:700;
+      letter-spacing:0.2px;
+      text-transform:none;
+    }
+
+    .lead{
+      margin: 0 0 10px 0;
+      color: var(--ink);
       font-size: 15px;
-      font-weight: 600;
-      text-align: center;
+      line-height: 1.55;
+    }
+
+    /* --- Audio --- */
+    .audio-card{
+      border:1px solid rgba(46,94,62,0.18);
+      background: rgba(46,94,62,0.04);
+      border-radius:12px;
+      padding:14px 14px 12px;
     }
 
     .player{
-      width: min(860px, 100%);
-      margin: 6px auto 0;
-      display: block;
-      accent-color: var(--green);
+      width:100%;
+      display:block;
+      accent-color:var(--green);
+    }
+
+    .timebar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-top:8px;
+      color:var(--muted);
+      font-size:13px;
     }
 
     .subline{
-      margin: 6px 0 0;
-      font-size: 14px;
-      color: var(--muted);
-      text-align: center;
+      margin:10px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.45;
     }
 
-    .voices-link{
-      display: inline-block;
-      margin-top: 10px;
-      color: var(--green);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      padding: 6px 10px;
-      border-radius: 8px;
-      border: 1px solid rgba(46,94,62,0.25);
-      background: rgba(46,94,62,0.06);
+    /* --- Service grid --- */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:10px;
+    }
+    .tile{
+      border:1px solid rgba(46,94,62,0.18);
+      border-radius:12px;
+      padding:12px 12px;
+      background: #fff;
+    }
+    .tile h3{
+      margin:0 0 6px 0;
+      font-size:14px;
+      letter-spacing:0.2px;
+    }
+    .tile p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
     }
 
-    .voices-link:hover{
-      text-decoration: underline;
-      border-color: rgba(46,94,62,0.40);
-      background: rgba(46,94,62,0.10);
+    /* --- Trust list --- */
+    .trust{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px 14px;
+      margin-top:10px;
     }
-
-    .email-wrap{
-      text-align: center;
+    .trust-item{
+      border-left:3px solid rgba(46,94,62,0.35);
+      padding-left:10px;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
     }
+    .trust-item strong{ color:var(--ink); }
 
+    /* --- Contact --- */
+    .contact-card{
+      border:1px solid rgba(46,94,62,0.18);
+      background: rgba(46,94,62,0.04);
+      border-radius:12px;
+      padding:14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+    }
     .email{
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 10px;
-      border: 1px solid rgba(46,94,62,0.35);
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:10px;
+      border:1px solid rgba(46,94,62,0.35);
       background: rgba(46,94,62,0.06);
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 700;
+      color:var(--ink);
+      text-decoration:none;
+      font-weight:900;
+      letter-spacing:0.2px;
     }
-
     .email:hover{
       border-color: rgba(46,94,62,0.55);
       background: rgba(46,94,62,0.10);
     }
 
+    .mini{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+      margin:0;
+    }
+
     .links{
-      margin-top: 14px;
-      font-size: 16px;
-      text-align: center;
+      margin-top:12px;
+      text-align:center;
+      font-size:15px;
     }
-
     .links a{
-      color: var(--orange);
-      text-decoration: none;
-      font-weight: 700;
-      padding: 6px 8px;
-      border-radius: 8px;
-      display: inline-block;
+      color:var(--orange);
+      text-decoration:none;
+      font-weight:800;
+      padding:6px 8px;
+      border-radius:8px;
+      display:inline-block;
     }
-
     .links a:hover{
-      text-decoration: underline;
+      text-decoration:underline;
       background: rgba(255,121,0,0.10);
     }
 
-    /* Mobile: stack header + center align */
-    @media (max-width: 640px){
-      body{ padding: 14px 12px 22px; text-align: center; }
-      .container{ padding: 24px 16px; }
+    footer{
+      margin-top:16px;
+      text-align:center;
+      color:var(--muted);
+      font-size:12px;
+    }
 
+    /* --- Mobile --- */
+    @media (max-width: 860px){
+      .header{
+        grid-template-columns: 200px 1fr;
+      }
+      .side-image{ display:none; } /* hide optional right image on smaller screens */
+      .profile{ width:200px; height:200px; }
+    }
+
+    @media (max-width: 640px){
+      body{ padding:14px 12px 22px; }
+      .container{ padding:22px 16px; }
       .header{
         grid-template-columns: 1fr;
-        gap: 14px;
-        text-align: center;
+        gap:14px;
+        text-align:center;
       }
-
-      .header-text{
-  padding-left: 0;
-}
-      .profile{
-        width: 200px;
-        height: 200px;
-      }
+      .profile{ width:190px; height:190px; }
+      .cta-row{ justify-content:center; }
+      .grid{ grid-template-columns: 1fr; }
+      .trust{ grid-template-columns: 1fr; }
+      .contact-card{ justify-content:center; text-align:center; }
     }
 
     /* Short screens: reduce vertical cost */
     @media (max-height: 780px){
-      .container{ padding: 22px 18px; }
-      .divider{ margin: 14px auto; }
-      .profile{ width: 210px; height: 210px; }
-      .links{ margin-top: 10px; }
+      .container{ padding:20px 18px; }
+      .divider{ margin:14px auto; }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
+  <main class="container">
 
-    <div class="header">
-      <img class="profile" src="profile.jpg" alt="G Crickmore VA">
+    <header class="header">
+      <img class="profile" src="profile.jpg" alt="G Crickmore VA profile photo">
 
       <div class="header-text">
         <h1 class="title">G Crickmore VA</h1>
@@ -218,43 +328,148 @@
         <p class="tagline">Commercial • Narration • Games</p>
         <p class="tagline">Based in Suffolk, England</p>
         <p class="value-line">Warm, grounded British voice with fast turnaround.</p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:g.crickmore.va@gmail.com?subject=Voiceover%20Booking%20Request&body=Hi%20George%2C%0A%0AI%27d%20like%20to%20book%20you%20for%3A%0A-%20Project%20type%3A%0A-%20Usage%20(%20web%2Fradio%2Fpaid%20ads%2Faudiobook%2Fetc%20)%3A%0A-%20Length%20/%20word%20count%3A%0A-%20Deadline%3A%0A-%20Reference%20links%3A%0A%0AThanks%2C">
+            Email to Hire
+          </a>
+          <a class="btn btn-ghost" href="https://www.voices.com/profile/gcrickmoreva" target="_blank" rel="noopener">
+            More Demos (Voices)
+          </a>
+        </div>
+
+        <p class="microtrust">
+          ✅ Clean broadcast-ready audio<br>
+          ✅ Fast, professional communication<br>
+          ✅ Delivery in WAV/MP3 (48kHz/24-bit on request)
+        </p>
       </div>
-    </div>
+
+      <!-- OPTIONAL: second header image for balance.
+           Put your other image in the repo as "studio.jpg" (or rename here). -->
+      <img class="side-image" src="studio.jpg" alt="Studio image (optional)">
+    </header>
 
     <div class="divider"></div>
 
-    <p class="section-title">Listen to my Commercial Demo</p>
+    <section class="section" aria-label="Demo">
+      <p class="section-title">Commercial Demo</p>
 
-    <!-- preload=metadata shows duration before play (where the browser allows) -->
-    <audio class="player" controls preload="metadata">
-      <source src="./demo.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+      <div class="audio-card">
+        <audio id="demoPlayer" class="player" controls preload="metadata">
+          <source src="./demo.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
 
-    <p class="subline">Natural, grounded reads for modern brands</p>
+        <div class="timebar" aria-label="Playback time">
+          <span id="currentTime">0:00</span>
+          <span id="durationTime">0:00</span>
+        </div>
 
-    <p style="text-align:center; margin: 10px 0 0;">
-      <a class="voices-link" href="https://www.voices.com/profile/gcrickmoreva">
-        Hear more demos on Voices
-      </a>
-    </p>
+        <p class="subline">Natural, grounded reads for modern brands.</p>
+      </div>
+    </section>
 
     <div class="divider"></div>
 
-    <p class="section-title">Available for commercial, narration & character work</p>
-
-    <div class="email-wrap">
-      <a class="email" href="mailto:g.crickmore.va@gmail.com">g.crickmore.va@gmail.com</a>
-    </div>
-
-    <div class="links">
-      <p style="margin:14px 0 0;">
-        <a href="https://instagram.com/g_crickmore_va">Instagram</a> |
-        <a href="https://youtube.com/@g_crickmore_va">YouTube</a> |
-        <a href="https://x.com/G_Crickmore_VA">X</a>
+    <section class="section" aria-label="Services">
+      <p class="section-title">What I’m hired for</p>
+      <p class="lead">
+        Clear reads, dependable delivery, and fast turnaround — with the tone controlled to match your brand.
       </p>
-    </div>
 
-  </div>
+      <div class="grid">
+        <div class="tile">
+          <h3>Commercial</h3>
+          <p>Web, social, radio. Confident, modern British reads with clean pacing.</p>
+        </div>
+        <div class="tile">
+          <h3>Narration</h3>
+          <p>Explainers, corporate, documentaries. Calm authority, easy to listen to.</p>
+        </div>
+        <div class="tile">
+          <h3>Games & Characters</h3>
+          <p>Grounded character work. Controlled intensity without going “cartoonish”.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section" aria-label="Trust">
+      <p class="section-title">Delivery & reliability</p>
+
+      <div class="trust">
+        <div class="trust-item"><strong>Turnaround:</strong> typically 24–48 hours (rush available).</div>
+        <div class="trust-item"><strong>Audio:</strong> broadcast-ready, noise-controlled, consistent levels.</div>
+        <div class="trust-item"><strong>Files:</strong> WAV/MP3, named takes, clean edits on request.</div>
+        <div class="trust-item"><strong>Process:</strong> 1 round of pickups for performance fixes (by agreement).</div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section" aria-label="Contact">
+      <p class="section-title">Hire me</p>
+
+      <div class="contact-card">
+        <div>
+          <p class="mini" style="margin:0 0 6px 0;"><strong>Fastest route:</strong> email with your script + usage + deadline.</p>
+          <a class="email" href="mailto:g.crickmore.va@gmail.com">g.crickmore.va@gmail.com</a>
+        </div>
+
+        <div style="min-width:240px; text-align:right;">
+          <p class="mini" style="margin:0;">
+            Prefer a platform?<br>
+            <a class="btn" href="https://www.voices.com/profile/gcrickmoreva" target="_blank" rel="noopener">Book via Voices</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="links">
+        <p style="margin:12px 0 0;">
+          <a href="https://instagram.com/g_crickmore_va" target="_blank" rel="noopener">Instagram</a> |
+          <a href="https://youtube.com/@g_crickmore_va" target="_blank" rel="noopener">YouTube</a> |
+          <a href="https://x.com/G_Crickmore_VA" target="_blank" rel="noopener">X</a>
+        </p>
+      </div>
+
+      <footer>
+        © <span id="year"></span> G Crickmore VA — Suffolk, England
+      </footer>
+    </section>
+
+  </main>
+
+  <script>
+    // --- Footer year ---
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // --- Visible audio time display (current + duration) ---
+    const player = document.getElementById("demoPlayer");
+    const currentEl = document.getElementById("currentTime");
+    const durationEl = document.getElementById("durationTime");
+
+    function formatTime(seconds){
+      if (!isFinite(seconds) || seconds < 0) return "0:00";
+      const m = Math.floor(seconds / 60);
+      const s = Math.floor(seconds % 60);
+      return m + ":" + String(s).padStart(2, "0");
+    }
+
+    function updateTimes(){
+      currentEl.textContent = formatTime(player.currentTime);
+      durationEl.textContent = formatTime(player.duration);
+    }
+
+    // Duration becomes available after metadata is loaded (where the browser allows)
+    player.addEventListener("loadedmetadata", updateTimes);
+    player.addEventListener("timeupdate", updateTimes);
+    player.addEventListener("durationchange", updateTimes);
+    player.addEventListener("emptied", updateTimes);
+
+    // If metadata is already cached and loaded quickly:
+    updateTimes();
+  </script>
 </body>
 </html>
