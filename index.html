@@ -77,11 +77,24 @@
       margin:0 auto;
     }
 
+    /* NEW: name line */
+    .name{
+      margin:0 0 6px 0;
+      font-weight:900;
+      letter-spacing:0.22em;
+      font-size:13px;
+      color:rgba(255,255,255,0.78);
+      text-transform:uppercase;
+    }
+
+    /* Updated: shorter, cleaner headline + controlled wrap */
     .title{
       margin:0 0 8px 0;
-      font-size:clamp(28px, 3.5vw, 46px);
+      font-size:clamp(26px, 3.2vw, 44px);
+      line-height:1.12;
       letter-spacing:0.2px;
       color:#ffffff;
+      max-width:22ch; /* keeps it from running too wide */
     }
 
     .subheadline{
@@ -95,6 +108,7 @@
       font-size:clamp(15px, 2vw, 18px);
       font-weight:800;
       color:rgba(255,255,255,0.95);
+      max-width:60ch;
     }
 
     .cta-row{
@@ -267,6 +281,7 @@
     @media (max-width:860px){
       .hero-content{ grid-template-columns:200px 1fr; }
       .profile{ width:200px; height:200px; }
+      .title{ max-width: 26ch; } /* a bit more room on mid screens */
     }
 
     @media (max-width:640px){
@@ -277,6 +292,8 @@
       .cta-row{ justify-content:center; }
       .grid{ grid-template-columns:1fr; }
       .contact-card{ justify-content:center; text-align:center; }
+      .title{ max-width: unset; } /* let mobile wrap naturally */
+      .name{ letter-spacing:0.18em; }
     }
 
   </style>
@@ -288,10 +305,11 @@
     <header class="hero">
       <div class="hero-content">
 
-        <img class="profile" src="profile.jpg" alt="G Crickmore Voice Actor">
+        <img class="profile" src="profile.jpg" alt="George Crickmore Voice Actor">
 
         <div>
-          <h1 class="title">British Voice Actor for Commercial & Corporate</h1>
+          <p class="name">George Crickmore</p>
+          <h1 class="title">British Voice Actor — Commercial &amp; Corporate</h1>
           <p class="subheadline">Commercial • Corporate • Games</p>
           <p class="value-line">Broadcast-standard delivery with calm authority and control.</p>
 
@@ -353,7 +371,7 @@
       </div>
 
       <footer>
-        © <span id="year"></span> G Crickmore VA
+        © <span id="year"></span> George Crickmore VA
       </footer>
     </section>
 
