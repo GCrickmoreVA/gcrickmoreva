@@ -13,8 +13,6 @@
       --bg:#f4f5f2;
       --card:#ffffff;
       --green:#2e5e3e;
-      --green-soft:rgba(46,94,62,0.12);
-      --orange:#ff7900;
       --line:rgba(46,94,62,0.22);
       --shadow:0 14px 40px rgba(0,0,0,0.08);
     }
@@ -41,21 +39,22 @@
       box-shadow:var(--shadow);
     }
 
-    /* --- Hero header (studio image background) --- */
+    /* ---------- HERO ---------- */
+
     .hero{
       position:relative;
       background:url("studio.jpg") center center / cover no-repeat;
       border-radius:12px;
       overflow:hidden;
       padding:40px 30px;
-      margin-bottom:18px;
+      margin-bottom:22px;
     }
 
     .hero::before{
       content:"";
       position:absolute;
       inset:0;
-      background:rgba(0,0,0,0.55);
+      background:rgba(0,0,0,0.65);
     }
 
     .hero-content{
@@ -76,7 +75,6 @@
       border:3px solid rgba(255,255,255,0.18);
       display:block;
       margin:0 auto;
-      background:rgba(255,255,255,0.05);
     }
 
     .title{
@@ -90,20 +88,20 @@
       margin:6px 0;
       font-size:clamp(16px, 2.1vw, 19px);
       line-height:1.35;
-      color:rgba(255,255,255,0.86);
+      color:rgba(255,255,255,0.85);
     }
 
     .value-line{
       margin:12px 0 0;
-      font-size:clamp(15px, 2.0vw, 18px);
+      font-size:clamp(15px, 2vw, 18px);
       font-weight:900;
-      color:rgba(255,255,255,0.92);
+      color:rgba(255,255,255,0.95);
     }
 
     .cta-row{
-      margin-top:14px;
+      margin-top:16px;
       display:flex;
-      gap:10px;
+      gap:12px;
       flex-wrap:wrap;
       align-items:center;
     }
@@ -111,78 +109,65 @@
     .btn{
       display:inline-block;
       text-decoration:none;
-      font-weight:900;
+      font-weight:800;
       border-radius:10px;
-      padding:10px 14px;
-      border:1px solid rgba(255,255,255,0.28);
-      background:rgba(255,255,255,0.10);
+      padding:10px 16px;
+      border:1px solid rgba(255,255,255,0.25);
+      background:rgba(255,255,255,0.12);
       color:#ffffff;
-      transition: transform 0.06s ease, background 0.15s ease, border-color 0.15s ease;
+      transition:0.15s ease;
     }
 
     .btn:hover{
-      border-color: rgba(255,255,255,0.45);
-      background: rgba(255,255,255,0.14);
-      transform: translateY(-1px);
+      background:rgba(255,255,255,0.18);
+      transform:translateY(-1px);
     }
 
     .btn-primary{
-      border-color: rgba(46,94,62,0.70);
-      background: rgba(46,94,62,0.55);
+      background:rgba(46,94,62,0.65);
+      border-color:rgba(46,94,62,0.9);
     }
 
     .btn-primary:hover{
-      background: rgba(46,94,62,0.65);
-      border-color: rgba(46,94,62,0.85);
-    }
-
-    .btn-ghost{
-      border-color: rgba(255,255,255,0.22);
-      background: transparent;
+      background:rgba(46,94,62,0.75);
     }
 
     .microtrust{
-      margin-top:10px;
+      margin-top:14px;
       font-size:13px;
-      line-height:1.45;
-      color:rgba(255,255,255,0.78);
+      line-height:1.5;
+      color:rgba(255,255,255,0.75);
+    }
+
+    /* ---------- SECTIONS ---------- */
+
+    .section{
+      width:min(1020px, 100%);
+      margin:0 auto 22px;
+    }
+
+    .section-title{
+      margin:0 0 10px 0;
+      color:var(--muted);
+      font-size:15px;
+      font-weight:800;
+      text-align:center;
     }
 
     .divider{
       height:1px;
       background:var(--line);
-      margin:18px auto;
+      margin:20px auto;
       width:min(1020px, 96%);
     }
 
-    .section{
-      width:min(1020px, 100%);
-      margin:0 auto;
-    }
+    /* ---------- AUDIO ---------- */
 
-    .section-title{
-      margin:0 0 8px 0;
-      color:var(--muted);
-      font-size:15px;
-      font-weight:800;
-      letter-spacing:0.2px;
-      text-align:center;
-    }
-
-    .lead{
-      margin:0 0 10px 0;
-      color:var(--ink);
-      font-size:15px;
-      line-height:1.55;
-      text-align:center;
-    }
-
-    /* --- Audio --- */
     .audio-card{
       border:1px solid rgba(46,94,62,0.18);
-      background: rgba(46,94,62,0.04);
+      background:rgba(46,94,62,0.04);
       border-radius:12px;
-      padding:14px 14px 12px;
+      padding:16px;
     }
 
     .player{
@@ -194,39 +179,37 @@
     .timebar{
       display:flex;
       justify-content:space-between;
-      align-items:center;
       margin-top:8px;
-      color:var(--muted);
       font-size:13px;
+      color:var(--muted);
     }
 
     .subline{
       margin:10px 0 0;
       color:var(--muted);
       font-size:14px;
-      line-height:1.45;
       text-align:center;
     }
 
-    /* --- Service grid --- */
+    /* ---------- SERVICES ---------- */
+
     .grid{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:12px;
+      grid-template-columns:repeat(3, 1fr);
+      gap:14px;
       margin-top:10px;
     }
 
     .tile{
       border:1px solid rgba(46,94,62,0.18);
       border-radius:12px;
-      padding:12px 12px;
+      padding:14px;
       background:#fff;
     }
 
     .tile h3{
       margin:0 0 6px 0;
       font-size:14px;
-      letter-spacing:0.2px;
     }
 
     .tile p{
@@ -236,257 +219,190 @@
       line-height:1.45;
     }
 
-    /* --- Trust list --- */
-    .trust{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px 14px;
-      margin-top:10px;
-    }
+    /* ---------- CONTACT ---------- */
 
-    .trust-item{
-      border-left:3px solid rgba(46,94,62,0.35);
-      padding-left:10px;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.45;
-    }
-
-    .trust-item strong{ color:var(--ink); }
-
-    /* --- Contact --- */
     .contact-card{
       border:1px solid rgba(46,94,62,0.18);
-      background: rgba(46,94,62,0.04);
+      background:rgba(46,94,62,0.04);
       border-radius:12px;
-      padding:14px;
+      padding:16px;
       display:flex;
       justify-content:space-between;
       align-items:center;
-      gap:14px;
       flex-wrap:wrap;
+      gap:14px;
     }
 
     .email{
       display:inline-block;
-      padding:10px 14px;
+      padding:10px 16px;
       border-radius:10px;
       border:1px solid rgba(46,94,62,0.35);
-      background: rgba(46,94,62,0.06);
+      background:rgba(46,94,62,0.06);
       color:var(--ink);
       text-decoration:none;
-      font-weight:900;
-      letter-spacing:0.2px;
+      font-weight:800;
     }
 
     .email:hover{
-      border-color: rgba(46,94,62,0.55);
-      background: rgba(46,94,62,0.10);
+      background:rgba(46,94,62,0.1);
     }
 
-    .mini{
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.45;
-      margin:0;
-    }
-
-    .links{
-      margin-top:12px;
-      text-align:center;
-      font-size:15px;
-    }
-
-    .links a{
-      color:var(--orange);
+    .platform-link{
+      color:var(--green);
+      font-weight:800;
       text-decoration:none;
-      font-weight:900;
-      padding:6px 8px;
-      border-radius:8px;
-      display:inline-block;
     }
 
-    .links a:hover{
+    .platform-link:hover{
       text-decoration:underline;
-      background: rgba(255,121,0,0.10);
     }
 
     footer{
-      margin-top:16px;
+      margin-top:18px;
       text-align:center;
       color:var(--muted);
       font-size:12px;
     }
 
-    /* --- Mobile --- */
-    @media (max-width: 860px){
-      .hero{ padding:28px 18px; }
-      .hero-content{ grid-template-columns: 200px 1fr; gap:18px; }
+    /* ---------- MOBILE ---------- */
+
+    @media (max-width:860px){
+      .hero-content{ grid-template-columns:200px 1fr; }
       .profile{ width:200px; height:200px; }
     }
 
-    @media (max-width: 640px){
-      body{ padding:14px 12px 22px; }
-      .container{ padding:18px 16px 22px; }
-      .hero{ padding:22px 16px; }
+    @media (max-width:640px){
       .hero-content{
-        grid-template-columns: 1fr;
-        gap:14px;
+        grid-template-columns:1fr;
         text-align:center;
       }
       .cta-row{ justify-content:center; }
-      .profile{ width:190px; height:190px; }
-      .grid{ grid-template-columns: 1fr; }
-      .trust{ grid-template-columns: 1fr; }
+      .grid{ grid-template-columns:1fr; }
       .contact-card{ justify-content:center; text-align:center; }
     }
 
-    @media (max-height: 780px){
-      .divider{ margin:14px auto; }
-    }
   </style>
 </head>
 
 <body>
   <main class="container">
 
-    <header class="hero" aria-label="Header">
+    <header class="hero">
       <div class="hero-content">
 
-        <img class="profile" src="profile.jpg" alt="G Crickmore VA profile photo">
+        <img class="profile" src="profile.jpg" alt="G Crickmore Voice Actor">
 
         <div>
-          <h1 class="title">G Crickmore VA</h1>
-          <p class="tagline">Voice Actor</p>
-          <p class="tagline">Commercial • Narration • Games</p>
-          <p class="tagline">Based in Suffolk, England</p>
-          <p class="value-line">Warm, grounded British voice with fast turnaround.</p>
+          <h1 class="title">G Crickmore</h1>
+          <p class="tagline">British Voice Actor</p>
+          <p class="tagline">Commercial • Corporate • Games</p>
+          <p class="tagline">Suffolk, England</p>
+          <p class="value-line">Controlled, grounded British voice. Delivered to broadcast standard.</p>
 
           <div class="cta-row">
-           <a class="btn btn-primary"
-   href="mailto:g.crickmore.va@gmail.com?subject=Voiceover%20Quote%20Request&body=Hello%2C%0A%0AI%20would%20like%20to%20request%20a%20quote%20for%20the%20following%20project%3A%0A%0A-%20Project%20type%3A%0A-%20Intended%20usage%20(web%2Fradio%2Fpaid%20ads%2Faudiobook%2Fetc)%3A%0A-%20Script%20length%20or%20word%20count%3A%0A-%20Deadline%3A%0A-%20Budget%20range%20(if%20available)%3A%0A-%20Reference%20links%20or%20direction%3A%0A%0APlease%20let%20me%20know%20your%20availability%20and%20rates.%0A%0AThank%20you.">
-   Request a Quote
-</a>
+            <a class="btn btn-primary"
+               href="mailto:bookings@gcrickmoreva.com?subject=Voiceover%20Booking%20Enquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20enquire%20about%20booking%20you%20for%20the%20following%20project%3A%0A%0A-%20Project%20type%3A%0A-%20Intended%20usage%3A%0A-%20Script%20length%20or%20word%20count%3A%0A-%20Deadline%3A%0A-%20Reference%20links%20or%20direction%3A%0A%0APlease%20let%20me%20know%20your%20availability.%0A%0AThank%20you.">
+              Enquire About Booking
+            </a>
 
-            <a class="btn btn-ghost" href="https://www.voices.com/profile/gcrickmoreva" target="_blank" rel="noopener">
-              More Demos (Voices)
+            <a class="btn"
+               href="https://www.voices.com/profile/gcrickmoreva"
+               target="_blank"
+               rel="noopener">
+              View Voices Profile
             </a>
           </div>
 
           <p class="microtrust">
-            ✅ Clean broadcast-ready audio<br>
-            ✅ Fast, professional communication<br>
-            ✅ Delivery in WAV/MP3 (48kHz/24-bit on request)
+            Broadcast-ready studio audio<br>
+            Professional communication throughout<br>
+            WAV (48kHz / 24-bit) or client-specified formats
           </p>
         </div>
 
       </div>
     </header>
 
-    <section class="section" aria-label="Demo">
+    <section class="section">
       <p class="section-title">Commercial Demo</p>
 
       <div class="audio-card">
         <audio id="demoPlayer" class="player" controls preload="metadata">
           <source src="./demo.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
         </audio>
 
-        <div class="timebar" aria-label="Playback time">
+        <div class="timebar">
           <span id="currentTime">0:00</span>
           <span id="durationTime">0:00</span>
         </div>
 
-        <p class="subline">Natural, grounded reads for modern brands.</p>
+        <p class="subline">Natural, controlled reads for modern brands.</p>
       </div>
     </section>
 
     <div class="divider"></div>
 
-    <section class="section" aria-label="Services">
-      <p class="section-title">What I’m hired for</p>
-      <p class="lead">
-        Clear reads, dependable delivery, and fast turnaround — with the tone controlled to match your brand.
-      </p>
+    <section class="section">
+      <p class="section-title">Services</p>
 
       <div class="grid">
         <div class="tile">
           <h3>Commercial</h3>
-          <p>Web, social, radio. Confident, modern British reads with clean pacing.</p>
+          <p>Web, social, radio. Modern British delivery with measured confidence.</p>
         </div>
         <div class="tile">
-          <h3>Narration</h3>
-          <p>Explainers, corporate, documentaries. Calm authority, easy to listen to.</p>
+          <h3>Corporate Narration</h3>
+          <p>Explainers, internal comms, documentaries. Clear authority without excess.</p>
         </div>
         <div class="tile">
-          <h3>Games & Characters</h3>
-          <p>Grounded character work. Controlled intensity without going “cartoonish”.</p>
+          <h3>Games & Character</h3>
+          <p>Grounded, believable character performance with controlled intensity.</p>
         </div>
       </div>
     </section>
 
     <div class="divider"></div>
 
-    <section class="section" aria-label="Trust">
-      <p class="section-title">Delivery & reliability</p>
-
-      <div class="trust">
-        <div class="trust-item"><strong>Turnaround:</strong> typically 24–48 hours (rush available).</div>
-        <div class="trust-item"><strong>Audio:</strong> broadcast-ready, noise-controlled, consistent levels.</div>
-        <div class="trust-item"><strong>Files:</strong> WAV/MP3, named takes, clean edits on request.</div>
-        <div class="trust-item"><strong>Process:</strong> 1 round of pickups for performance fixes (by agreement).</div>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <section class="section" aria-label="Contact">
-      <p class="section-title">Hire me</p>
+    <section class="section">
+      <p class="section-title">Enquiries</p>
 
       <div class="contact-card">
         <div>
-          <p class="mini" style="margin:0 0 6px 0;">
-            <strong>Fastest route:</strong> email with your script + usage + deadline.
+          <p style="margin:0 0 6px 0; font-size:13px; color:var(--muted);">
+            For booking enquiries, please include script, usage and deadline.
           </p>
-          <a class="email" href="mailto:g.crickmore.va@gmail.com">g.crickmore.va@gmail.com</a>
+          <a class="email" href="mailto:bookings@gcrickmoreva.com">
+            bookings@gcrickmoreva.com
+          </a>
         </div>
 
-        <div style="min-width:240px; text-align:right;">
-          <p class="mini" style="margin:0;">
-            Prefer a platform?<br>
-            <a class="btn" href="https://www.voices.com/profile/gcrickmoreva" target="_blank" rel="noopener">
-              Book via Voices
-            </a>
-          </p>
+        <div>
+          <a class="platform-link"
+             href="https://www.voices.com/profile/gcrickmoreva"
+             target="_blank"
+             rel="noopener">
+             Book via Voices
+          </a>
         </div>
-      </div>
-
-      <div class="links">
-        <p style="margin:12px 0 0;">
-          <a href="https://instagram.com/g_crickmore_va" target="_blank" rel="noopener">Instagram</a> |
-          <a href="https://youtube.com/@g_crickmore_va" target="_blank" rel="noopener">YouTube</a> |
-          <a href="https://x.com/G_Crickmore_VA" target="_blank" rel="noopener">X</a>
-        </p>
       </div>
 
       <footer>
-        © <span id="year"></span> G Crickmore VA — Suffolk, England
+        © <span id="year"></span> G Crickmore VA
       </footer>
     </section>
 
   </main>
 
   <script>
-    // --- Footer year ---
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // --- Visible audio time display (current + duration) ---
     const player = document.getElementById("demoPlayer");
     const currentEl = document.getElementById("currentTime");
     const durationEl = document.getElementById("durationTime");
 
     function formatTime(seconds){
-      if (!isFinite(seconds) || seconds < 0) return "0:00";
+      if (!isFinite(seconds)) return "0:00";
       const m = Math.floor(seconds / 60);
       const s = Math.floor(seconds % 60);
       return m + ":" + String(s).padStart(2, "0");
@@ -499,10 +415,6 @@
 
     player.addEventListener("loadedmetadata", updateTimes);
     player.addEventListener("timeupdate", updateTimes);
-    player.addEventListener("durationchange", updateTimes);
-    player.addEventListener("emptied", updateTimes);
-
-    updateTimes();
   </script>
 </body>
 </html>
