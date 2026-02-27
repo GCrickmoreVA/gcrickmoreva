@@ -46,7 +46,7 @@
       background:url("studio.jpg") center center / cover no-repeat;
       border-radius:12px;
       overflow:hidden;
-      padding:60px 40px; /* increased vertical padding */
+      padding:60px 40px;
       margin-bottom:28px;
     }
 
@@ -61,7 +61,7 @@
       position:relative;
       display:grid;
       grid-template-columns:220px 1fr;
-      gap:36px; /* slightly more breathing room */
+      gap:36px;
       align-items:center;
       text-align:left;
       color:#ffffff;
@@ -87,7 +87,7 @@
     }
 
     .title{
-      margin:0 0 14px 0; /* more separation from subheadline */
+      margin:0 0 14px 0;
       font-size:clamp(24px, 3.2vw, 42px);
       line-height:1.08;
       letter-spacing:0.2px;
@@ -240,8 +240,29 @@
       text-decoration:underline;
     }
 
+    /* ---------- FOOTER SOCIALS (MUTED) ---------- */
+
+    .footer-links{
+      margin-top:18px;
+      text-align:center;
+      font-size:13px;
+      color:var(--muted);
+      opacity:0.8;
+    }
+
+    .footer-links a{
+      color:var(--muted);
+      text-decoration:none;
+      font-weight:600;
+    }
+
+    .footer-links a:hover{
+      color:var(--green);
+      opacity:1;
+    }
+
     footer{
-      margin-top:22px;
+      margin-top:16px;
       text-align:center;
       color:var(--muted);
       font-size:12px;
@@ -253,9 +274,7 @@
     }
 
     @media (max-width:640px){
-      .hero{
-        padding:45px 20px;
-      }
+      .hero{ padding:45px 20px; }
       .hero-content{
         grid-template-columns:1fr;
         text-align:center;
@@ -286,7 +305,7 @@
 
           <div class="cta-row">
             <a class="btn btn-primary"
-               href="mailto:bookings@gcrickmoreva.com?subject=Voiceover%20Booking%20Enquiry">
+               href="mailto:bookings@gcrickmoreva.com?subject=Voiceover%20Booking%20Enquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20enquire%20about%20booking%20you%20for%20the%20following%20project%3A%0A%0A-%20Project%20type%3A%0A-%20Intended%20usage%3A%0A-%20Script%20length%20or%20word%20count%3A%0A-%20Deadline%3A%0A-%20Reference%20links%20or%20direction%3A%0A%0APlease%20let%20me%20know%20your%20availability.%0A%0AThank%20you.">
               Enquire About Booking
             </a>
 
@@ -329,7 +348,8 @@
       <p class="section-title">Enquiries</p>
 
       <div class="contact-card">
-        <a class="email" href="mailto:bookings@gcrickmoreva.com">
+        <a class="email"
+           href="mailto:bookings@gcrickmoreva.com?subject=Voiceover%20Booking%20Enquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20enquire%20about%20booking%20you%20for%20the%20following%20project%3A%0A%0A-%20Project%20type%3A%0A-%20Intended%20usage%3A%0A-%20Script%20length%20or%20word%20count%3A%0A-%20Deadline%3A%0A-%20Reference%20links%20or%20direction%3A%0A%0APlease%20let%20me%20know%20your%20availability.%0A%0AThank%20you.">
           bookings@gcrickmoreva.com
         </a>
 
@@ -339,6 +359,14 @@
            rel="noopener">
            Book via Voices
         </a>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://instagram.com/g_crickmore_va" target="_blank">Instagram</a>
+        ·
+        <a href="https://youtube.com/@g_crickmore_va" target="_blank">YouTube</a>
+        ·
+        <a href="https://x.com/G_Crickmore_VA" target="_blank">X</a>
       </div>
 
       <footer>
