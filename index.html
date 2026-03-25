@@ -149,7 +149,7 @@
       color:rgba(255,255,255,0.70);
     }
 
-    /* ---------- SECTIONS ---------- */
+    /* ---------- SECTION ---------- */
 
     .section{
       width:min(1020px, 100%);
@@ -161,43 +161,6 @@
       color:var(--muted);
       font-size:15px;
       font-weight:800;
-      text-align:center;
-    }
-
-    .divider{
-      height:1px;
-      background:var(--line);
-      margin:24px auto;
-      width:min(1020px, 96%);
-    }
-
-    /* ---------- AUDIO ---------- */
-
-    .audio-card{
-      border:1px solid rgba(46,94,62,0.18);
-      background:rgba(46,94,62,0.04);
-      border-radius:12px;
-      padding:18px;
-    }
-
-    .player{
-      width:100%;
-      display:block;
-      accent-color:var(--green);
-    }
-
-    .timebar{
-      display:flex;
-      justify-content:space-between;
-      margin-top:10px;
-      font-size:13px;
-      color:var(--muted);
-    }
-
-    .subline{
-      margin:14px 0 0;
-      color:var(--muted);
-      font-size:14px;
       text-align:center;
     }
 
@@ -240,7 +203,7 @@
       text-decoration:underline;
     }
 
-    /* ---------- FOOTER SOCIALS (MUTED) ---------- */
+    /* ---------- FOOTER SOCIALS ---------- */
 
     .footer-links{
       margin-top:18px;
@@ -266,11 +229,6 @@
       text-align:center;
       color:var(--muted);
       font-size:12px;
-    }
-
-    @media (max-width:860px){
-      .hero-content{ grid-template-columns:200px 1fr; }
-      .profile{ width:200px; height:200px; }
     }
 
     @media (max-width:640px){
@@ -326,25 +284,6 @@
     </header>
 
     <section class="section">
-      <p class="section-title">Commercial Demo</p>
-
-      <div class="audio-card">
-        <audio id="demoPlayer" class="player" controls preload="metadata">
-          <source src="./demo.mp3" type="audio/mpeg">
-        </audio>
-
-        <div class="timebar">
-          <span id="currentTime">0:00</span>
-          <span id="durationTime">0:00</span>
-        </div>
-
-        <p class="subline">Natural, controlled reads for modern brands.</p>
-      </div>
-    </section>
-
-    <div class="divider"></div>
-
-    <section class="section">
       <p class="section-title">Enquiries</p>
 
       <div class="contact-card">
@@ -378,25 +317,6 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    const player = document.getElementById("demoPlayer");
-    const currentEl = document.getElementById("currentTime");
-    const durationEl = document.getElementById("durationTime");
-
-    function formatTime(seconds){
-      if (!isFinite(seconds)) return "0:00";
-      const m = Math.floor(seconds / 60);
-      const s = Math.floor(seconds % 60);
-      return m + ":" + String(s).padStart(2, "0");
-    }
-
-    function updateTimes(){
-      currentEl.textContent = formatTime(player.currentTime);
-      durationEl.textContent = formatTime(player.duration);
-    }
-
-    player.addEventListener("loadedmetadata", updateTimes);
-    player.addEventListener("timeupdate", updateTimes);
   </script>
 </body>
 </html>
