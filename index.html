@@ -2,40 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>George Crickmore | British Voice Actor</title>
+  <title>George Crickmore | Voice Actor</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     :root{
       --ink:#0f1a12;
-      --muted:#3c4a41;
+      --muted:#55635a;
       --bg:#f4f5f2;
       --card:#ffffff;
       --green:#2e5e3e;
-      --line:rgba(46,94,62,0.22);
+      --green-dark:#254d32;
+      --line:rgba(46,94,62,0.16);
       --shadow:0 14px 40px rgba(0,0,0,0.08);
     }
 
     *{ box-sizing:border-box; }
-    html,body{ height:100%; margin:0; }
+
+    html,body{
+      height:100%;
+      margin:0;
+    }
 
     body{
-      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-family:ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       background:var(--bg);
       color:var(--ink);
       display:flex;
       justify-content:center;
       align-items:flex-start;
-      padding:18px 14px 28px;
+      padding:18px 14px 30px;
     }
 
     .container{
-      width:min(1180px, 96vw);
+      width:min(1120px, 96vw);
       background:var(--card);
-      border:4px solid var(--green);
+      border:3px solid var(--green);
       border-radius:14px;
-      padding:22px 22px 26px;
+      padding:20px 20px 24px;
       box-shadow:var(--shadow);
     }
 
@@ -43,75 +48,96 @@
 
     .hero{
       position:relative;
-      background:url("studio.jpg") center center / cover no-repeat;
+      background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("studio.jpg") center center / cover no-repeat;
       border-radius:12px;
       overflow:hidden;
-      padding:60px 40px;
-      margin-bottom:28px;
-    }
-
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:rgba(0,0,0,0.65);
+      padding:52px 38px;
+      margin-bottom:40px;
+      min-height:420px;
+      display:flex;
+      align-items:center;
     }
 
     .hero-content{
-      position:relative;
+      width:100%;
       display:grid;
-      grid-template-columns:220px 1fr;
-      gap:36px;
+      grid-template-columns:190px 1fr;
+      gap:34px;
       align-items:center;
       text-align:left;
       color:#ffffff;
     }
 
-    .profile{
-      width:220px;
-      height:220px;
-      object-fit:cover;
-      border-radius:50%;
-      border:3px solid rgba(255,255,255,0.18);
-      display:block;
-      margin:0 auto;
+    .profile-wrap{
+      display:flex;
+      justify-content:center;
+      align-items:center;
     }
 
-    .name{
-      margin:0 0 8px 0;
-      font-weight:900;
+    .profile{
+      width:190px;
+      height:190px;
+      object-fit:cover;
+      object-position:center top;
+      border-radius:50%;
+      border:2px solid rgba(255,255,255,0.18);
+      display:block;
+      box-shadow:0 10px 30px rgba(0,0,0,0.22);
+      background:rgba(255,255,255,0.05);
+    }
+
+    .hero-copy{
+      max-width:620px;
+    }
+
+    .overline{
+      margin:0 0 10px 0;
+      font-size:12px;
+      font-weight:800;
       letter-spacing:0.22em;
-      font-size:13px;
-      color:rgba(255,255,255,0.75);
       text-transform:uppercase;
+      color:rgba(255,255,255,0.72);
     }
 
     .title{
-      margin:0 0 14px 0;
-      font-size:clamp(24px, 3.2vw, 42px);
-      line-height:1.08;
-      letter-spacing:0.2px;
+      margin:0 0 10px 0;
+      font-size:clamp(34px, 4.6vw, 54px);
+      line-height:1.02;
+      letter-spacing:-0.02em;
       color:#ffffff;
-    }
-
-    .subheadline{
-      margin:0 0 14px 0;
-      font-size:clamp(16px, 2vw, 19px);
-      color:rgba(255,255,255,0.85);
-    }
-
-    .value-line{
-      margin:10px 0 0;
-      font-size:clamp(15px, 2vw, 18px);
       font-weight:800;
-      color:rgba(255,255,255,0.95);
-      max-width:60ch;
+    }
+
+    .tagline{
+      margin:0 0 10px 0;
+      font-size:clamp(18px, 2.2vw, 22px);
+      line-height:1.35;
+      color:rgba(255,255,255,0.92);
+      font-weight:600;
+    }
+
+    .services-line{
+      margin:0 0 14px 0;
+      font-size:clamp(15px, 1.9vw, 18px);
+      line-height:1.4;
+      color:rgba(255,255,255,0.84);
+      font-weight:600;
+    }
+
+    .supporting{
+      margin:0;
+      font-size:15px;
+      line-height:1.6;
+      color:rgba(255,255,255,0.82);
+      max-width:48ch;
     }
 
     .cta-row{
       margin-top:22px;
       display:flex;
-      gap:14px;
+      gap:12px;
       flex-wrap:wrap;
       align-items:center;
     }
@@ -119,98 +145,111 @@
     .btn{
       display:inline-block;
       text-decoration:none;
-      font-weight:800;
+      font-weight:700;
       border-radius:10px;
       padding:11px 18px;
-      border:1px solid rgba(255,255,255,0.25);
-      background:rgba(255,255,255,0.12);
-      color:#ffffff;
       transition:0.15s ease;
-    }
-
-    .btn:hover{
-      background:rgba(255,255,255,0.18);
-      transform:translateY(-1px);
+      font-size:15px;
     }
 
     .btn-primary{
-      background:rgba(46,94,62,0.70);
-      border-color:rgba(46,94,62,0.95);
+      background:var(--green);
+      color:#ffffff;
+      border:1px solid rgba(46,94,62,0.95);
     }
 
     .btn-primary:hover{
-      background:rgba(46,94,62,0.8);
+      background:var(--green-dark);
+      transform:translateY(-1px);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,0.06);
+      color:#ffffff;
+      border:1px solid rgba(255,255,255,0.22);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.12);
+      transform:translateY(-1px);
     }
 
     .microtrust{
       margin-top:18px;
       font-size:13px;
       line-height:1.6;
-      color:rgba(255,255,255,0.70);
+      color:rgba(255,255,255,0.72);
     }
 
     /* ---------- SECTION ---------- */
 
     .section{
-      width:min(1020px, 100%);
-      margin:0 auto 28px;
+      width:min(920px, 100%);
+      margin:0 auto;
     }
 
     .section-title{
-      margin:0 0 12px 0;
-      color:var(--muted);
+      margin:0 0 14px 0;
+      color:var(--ink);
       font-size:15px;
       font-weight:800;
       text-align:center;
+      letter-spacing:0.01em;
     }
 
     /* ---------- CONTACT ---------- */
 
-    .contact-card{
-      border:1px solid rgba(46,94,62,0.18);
-      background:rgba(46,94,62,0.04);
-      border-radius:12px;
-      padding:18px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      flex-wrap:wrap;
-      gap:16px;
+    .contact-section{
+      padding-top:4px;
     }
 
-    .email{
+    .contact-card{
+      text-align:center;
+      padding:6px 0 2px;
+    }
+
+    .contact-email{
       display:inline-block;
-      padding:11px 18px;
-      border-radius:10px;
-      border:1px solid rgba(46,94,62,0.35);
-      background:rgba(46,94,62,0.06);
+      font-size:clamp(20px, 2.8vw, 28px);
+      line-height:1.2;
+      font-weight:700;
       color:var(--ink);
       text-decoration:none;
-      font-weight:800;
+      letter-spacing:-0.01em;
     }
 
-    .email:hover{
-      background:rgba(46,94,62,0.1);
-    }
-
-    .platform-link{
+    .contact-email:hover{
       color:var(--green);
-      font-weight:800;
-      text-decoration:none;
     }
 
-    .platform-link:hover{
+    .contact-actions{
+      margin-top:18px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .voices-link{
+      color:var(--green);
+      font-weight:700;
+      text-decoration:none;
+      font-size:15px;
+    }
+
+    .voices-link:hover{
       text-decoration:underline;
     }
 
-    /* ---------- FOOTER SOCIALS ---------- */
+    /* ---------- FOOTER ---------- */
 
     .footer-links{
-      margin-top:18px;
+      margin-top:42px;
       text-align:center;
-      font-size:13px;
+      font-size:12px;
       color:var(--muted);
-      opacity:0.8;
+      opacity:0.82;
     }
 
     .footer-links a{
@@ -221,26 +260,76 @@
 
     .footer-links a:hover{
       color:var(--green);
-      opacity:1;
     }
 
     footer{
-      margin-top:16px;
+      margin-top:12px;
       text-align:center;
       color:var(--muted);
-      font-size:12px;
+      font-size:11px;
+      opacity:0.78;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width:860px){
+      .hero{
+        padding:42px 26px;
+        min-height:auto;
+      }
+
+      .hero-content{
+        grid-template-columns:170px 1fr;
+        gap:24px;
+      }
+
+      .profile{
+        width:170px;
+        height:170px;
+      }
     }
 
     @media (max-width:640px){
-      .hero{ padding:45px 20px; }
+      body{
+        padding:14px 12px 24px;
+      }
+
+      .container{
+        padding:16px 16px 20px;
+      }
+
+      .hero{
+        padding:34px 18px;
+        margin-bottom:34px;
+      }
+
       .hero-content{
         grid-template-columns:1fr;
         text-align:center;
+        gap:18px;
       }
-      .cta-row{ justify-content:center; }
-      .contact-card{ justify-content:center; text-align:center; }
-    }
 
+      .hero-copy{
+        max-width:none;
+      }
+
+      .supporting{
+        max-width:none;
+      }
+
+      .cta-row{
+        justify-content:center;
+      }
+
+      .profile{
+        width:158px;
+        height:158px;
+      }
+
+      .contact-actions{
+        gap:14px;
+      }
+    }
   </style>
 </head>
 
@@ -249,25 +338,24 @@
 
     <header class="hero">
       <div class="hero-content">
+        <div class="profile-wrap">
+          <img class="profile" src="profile.jpg" alt="George Crickmore Voice Actor">
+        </div>
 
-        <img class="profile" src="profile.jpg" alt="George Crickmore Voice Actor">
-
-        <div>
-          <p class="name">George Crickmore</p>
-          <h1 class="title">
-            British Voice Actor<br>
-            Commercial &amp; Corporate
-          </h1>
-          <p class="subheadline">Commercial • Corporate • Character</p>
-          <p class="value-line">Broadcast-standard delivery with calm authority and control.</p>
+        <div class="hero-copy">
+          <p class="overline">George Crickmore</p>
+          <h1 class="title">UK Voice Actor</h1>
+          <p class="tagline">Calm. Controlled. Professional.</p>
+          <p class="services-line">Commercial • Narration • Character</p>
+          <p class="supporting">Studio-quality voiceover, delivered with clarity and control.</p>
 
           <div class="cta-row">
             <a class="btn btn-primary"
-               href="mailto:bookings@gcrickmoreva.com?subject=Voiceover%20Booking%20Enquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20enquire%20about%20booking%20you%20for%20the%20following%20project%3A%0A%0A-%20Project%20type%3A%0A-%20Intended%20usage%3A%0A-%20Script%20length%20or%20word%20count%3A%0A-%20Deadline%3A%0A-%20Reference%20links%20or%20direction%3A%0A%0APlease%20let%20me%20know%20your%20availability.%0A%0AThank%20you.">
-              Enquire About Booking
+               href="mailto:george@gcrickmoreva.com?subject=Voiceover%20Enquiry&body=Hello%2C%0A%0AI%E2%80%99d%20like%20to%20enquire%20about%20the%20following%20project%3A%0A%0A-%20Project%20type%3A%0A-%20Usage%3A%0A-%20Script%20length%20or%20word%20count%3A%0A-%20Deadline%3A%0A-%20Reference%20links%20or%20direction%3A%0A%0AThank%20you.">
+              Enquire
             </a>
 
-            <a class="btn"
+            <a class="btn btn-secondary"
                href="https://www.voices.com/profile/gcrickmoreva"
                target="_blank"
                rel="noopener">
@@ -276,40 +364,41 @@
           </div>
 
           <p class="microtrust">
-            Broadcast-ready studio audio • Professional communication • 48kHz / 24-bit WAV available
+            Studio-quality audio • Fast, professional delivery
           </p>
         </div>
-
       </div>
     </header>
 
-    <section class="section">
-      <p class="section-title">Enquiries</p>
+    <section class="section contact-section">
+      <h2 class="section-title">Enquiries</h2>
 
       <div class="contact-card">
-        <a class="email"
-           href="mailto:bookings@gcrickmoreva.com?subject=Voiceover%20Booking%20Enquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20enquire%20about%20booking%20you%20for%20the%20following%20project%3A%0A%0A-%20Project%20type%3A%0A-%20Intended%20usage%3A%0A-%20Script%20length%20or%20word%20count%3A%0A-%20Deadline%3A%0A-%20Reference%20links%20or%20direction%3A%0A%0APlease%20let%20me%20know%20your%20availability.%0A%0AThank%20you.">
-          bookings@gcrickmoreva.com
+        <a class="contact-email"
+           href="mailto:george@gcrickmoreva.com?subject=Voiceover%20Enquiry&body=Hello%2C%0A%0AI%E2%80%99d%20like%20to%20enquire%20about%20the%20following%20project%3A%0A%0A-%20Project%20type%3A%0A-%20Usage%3A%0A-%20Script%20length%20or%20word%20count%3A%0A-%20Deadline%3A%0A-%20Reference%20links%20or%20direction%3A%0A%0AThank%20you.">
+          george@gcrickmoreva.com
         </a>
 
-        <a class="platform-link"
-           href="https://www.voices.com/profile/gcrickmoreva"
-           target="_blank"
-           rel="noopener">
-           Book via Voices
-        </a>
+        <div class="contact-actions">
+          <a class="voices-link"
+             href="https://www.voices.com/profile/gcrickmoreva"
+             target="_blank"
+             rel="noopener">
+            Book via Voices.com
+          </a>
+        </div>
       </div>
 
       <div class="footer-links">
-        <a href="https://instagram.com/g_crickmore_va" target="_blank">Instagram</a>
+        <a href="https://instagram.com/g_crickmore_va" target="_blank" rel="noopener">Instagram</a>
         ·
-        <a href="https://youtube.com/@g_crickmore_va" target="_blank">YouTube</a>
+        <a href="https://youtube.com/@g_crickmore_va" target="_blank" rel="noopener">YouTube</a>
         ·
-        <a href="https://x.com/G_Crickmore_VA" target="_blank">X</a>
+        <a href="https://x.com/G_Crickmore_VA" target="_blank" rel="noopener">X</a>
       </div>
 
       <footer>
-        © <span id="year"></span> George Crickmore VA
+        © <span id="year"></span> George Crickmore
       </footer>
     </section>
 
